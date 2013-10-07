@@ -21,11 +21,11 @@ exports.user = {
 };
 
 /**
- * Article authorizations routing middleware
+ * Bookmark authorizations routing middleware
  */
-exports.article = {
+exports.bookmark = {
     hasAuthorization: function(req, res, next) {
-        if (req.article.user.id != req.user.id) {
+        if (req.bookmark.user.id != req.user.id) {
             return res.send(401, 'User is not authorized');
         }
         next();
