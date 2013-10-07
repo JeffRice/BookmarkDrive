@@ -28,7 +28,6 @@ var Bookmark = new Schema({
         type: Date,
         default: Date.now
     },
-    title:
     user: {
         type: Schema.ObjectId,
         ref: 'User'
