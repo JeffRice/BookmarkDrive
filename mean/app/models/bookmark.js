@@ -19,7 +19,7 @@ var Bookmark = new Schema({
         default: '',
         trim: true
     },
-    address: {
+    content: {
         type: String,
         default: '',
         trim: true
@@ -30,6 +30,13 @@ var Bookmark = new Schema({
     }
 });
 
+
+/**
+*Validations
+*/
+BookmarkSchema.path('title').validate(function(title) {
+    return title.length;
+}, 'Title cannot be blank');
 
 
 /**
