@@ -1,4 +1,4 @@
-/**
+Michelle Part 2/**
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 /**
  * Bookmark Schema
  */
-var Bookmark = new Schema({
+var BookmarkSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
