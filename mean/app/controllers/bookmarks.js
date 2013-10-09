@@ -54,7 +54,7 @@ exports.update = function(req, res) {
 /**
  * Delete a bookmark
  */
-exports.bookmark = function(req, res) {
+exports.destroy = function(req, res) {
     var bookmark = req.bookmark;
 
     bookmark.remove(function(err) {
