@@ -1,4 +1,4 @@
-Michelle Part 2/**
+/**
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
