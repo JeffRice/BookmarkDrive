@@ -6,6 +6,6 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
         "link": "bookmarks"
     }, {
         "title": "Create New Bookmark",
-        "link": "bookmark/create"
+        "link": "bookmarks/create"
     }];
 }]);
