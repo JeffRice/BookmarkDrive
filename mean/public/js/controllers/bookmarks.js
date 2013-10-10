@@ -2,7 +2,7 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
     $scope.global = Global;
 
     $scope.create = function() {
-        var bookmark = new bookmarks({
+        var bookmark = new Bookmarks({
             title: this.title,
             content: this.content
         });
@@ -37,13 +37,13 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
     };
 
     $scope.find = function(query) {
-        bookmarks.query(query, function(bookmarks) {
+        Bookmarks.query(query, function(bookmarks) {
             $scope.bookmarks = bookmarks;
         });
     };
 
     $scope.findOne = function() {
-        bookmarks.get({
+        Bookmarks.get({
             bookmarkId: $routeParams.bookmarkId
         }, function(bookmark) {
             $scope.bookmark = bookmark;
