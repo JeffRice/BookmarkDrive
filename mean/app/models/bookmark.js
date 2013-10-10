@@ -19,10 +19,15 @@ var BookmarkSchema = new Schema({
         default: '',
         trim: true
     },
-    content: {
+    address: {
         type: String,
         default: '',
         trim: true
+    },
+    category: {
+        type: String,
+	default: '',
+	trim: true
     },
     user: {
         type: Schema.ObjectId,
