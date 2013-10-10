@@ -1,4 +1,4 @@
-angular.module('mean.bookmarks').controller('bookmarksController', ['$scope', '$routeParams', '$location', 'Global', 'bookmarks', function ($scope, $routeParams, $location, Global, bookmarks) {
+angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$routeParams', '$location', 'Global', 'bookmarks', function ($scope, $routeParams, $location, Global, bookmarks) {
     $scope.global = Global;
 
     $scope.create = function() {
