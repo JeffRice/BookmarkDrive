@@ -4,14 +4,18 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
     $scope.create = function() {
         var bookmark = new Bookmarks({
             title: this.title,
-            content: this.content
+	    address: this.address,
+	    category: this.category,
+            description: this.description
         });
         bookmark.$save(function(response) {
             $location.path("bookmarks/" + response._id);
         });
 
         this.title = "";
-        this.content = "";
+        this.description = "";
+	this.address = "";
+	this.category = "";
     };
 
     $scope.remove = function(bookmark) {
@@ -43,10 +47,10 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
     };
 
     $scope.findOne = function() {
-        Bookmarks.get({
-            bookmarkId: $routeParams.bookmarkId
-        }, function(bookmark) {
-            $scope.bookmark = bookmark;
-        });
+	Bookmarks.get({
+	    bookmarkId: $routeParams.bookmarkId
+	}, function(bookmark) {
+	    $scope.bookmark = bookmark;
+	});
     };
 }]);
