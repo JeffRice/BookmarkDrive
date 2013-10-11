@@ -4,7 +4,8 @@
 			<span>{{bookmark.created | date:'medium'}}</span> /
 			<span>{{bookmark.user.name}}</span>
 			<h2><a data-ng-href="#!/bookmarks/{{bookmark._id}}">{{bookmark.title}}</a></h2>
-			<div>{{bookmark.content}}</div>
+Category<h3>{{bookmark.category}}</h3>
+			<div>{{bookmark.description}}</div>
 		</li>
 	</ul>
 	<h1 data-ng-hide="!bookmarks || bookmarks.length">No bookmarks yet. <br> Why don't you <a href="/#!/bookmarks/create">Create One</a>?</h1>
