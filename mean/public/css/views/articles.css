@@ -5,3 +5,7 @@ h1 {
 ul.bookmarks li:not(:last-child) {
     border-bottom:1px solid #ccc
 }
+
+.blueTitle {
+    color: #0088CC;
+}
