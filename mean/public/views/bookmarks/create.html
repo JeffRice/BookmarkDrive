@@ -1,17 +1,29 @@
 <section data-ng-controller="BookmarksController">
 	<form class="form-horizontal" data-ng-submit="create()">
 		<div class="control-group">
-			<label class="control-label" for="title">Title</label>
+			<label class="control-label" for="title">Title:</label>
 			<div class="controls">
 				<input type="text" data-ng-model="title" id="title" placeholder="Title" required>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="content">Content</label>
+		        <label class="control-label" for="address">Address:</label>
 			<div class="controls">
-				<textarea data-ng-model="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+			        <textarea data-ng-model="address" id="address" placeholder="address Http://"></textarea>
+</div></div>
+		<div class="control-group">
+			<label class="control-label" for="description">Description:</label>
+			<div class="controls">
+				<textarea data-ng-model="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
 			</div>
-		</div>
+</div>
+<div class="control-group">
+
+                        <label class="control-label" for="category">Category:</label>
+			<div class="controls">
+                                <textarea data-ng-model="category" id="category" placeholder="Category"></textarea></div>
+</div></div>
+
 		<div class="control-group">
 			<div class="controls">
 				<input type="submit" class="btn">
