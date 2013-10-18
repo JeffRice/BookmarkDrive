@@ -1,3 +1,4 @@
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('mean.system').controller('IndexController', ['$scope', 'Bookmarks', 'Global', function ($scope, Global, Bookmarks) {
     $scope.global = Global;
 }]);
+
