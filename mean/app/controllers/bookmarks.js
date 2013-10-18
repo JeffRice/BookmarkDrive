@@ -78,7 +78,7 @@ exports.show = function(req, res) {
 /**
  * List of Bookmarks
  */
-exports.all = function(req, res) {
+exports.all = function(req, res){
     Bookmark.find().sort('-created').populate('user', 'name username').exec(function(err, bookmarks) {
         if (err) {
             res.render('error', {
@@ -86,6 +86,21 @@ exports.all = function(req, res) {
             });
         } else {
             res.jsonp(bookmarks);
+        }
+    });
+};
+
+/**
+* List of Personal Bookmarks
+*/
+exports.all = function(req, res) {
+    Bookmark.find({ "category" : "Search engines" }).sort('-created').populate('user', 'name username').exec(function(err, mybookmarks) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(mybookmarks);
         }
     });
 };
