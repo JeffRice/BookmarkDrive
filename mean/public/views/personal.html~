@@ -1,0 +1,24 @@
+What live <b>Here?</b>
+<section data-ng-controller="BookmarksController" data-ng-init="find()">
+        <h1>This is the home viewalso broooo!!!</h1>
+Let's try to view our own here:
+
+<ul class="unstyled">
+    <li ng-repeat="bookmark in bookmarks" data-ng-show="global.user._id == bookmark.user._id">{{bookmark.title}}
+<span class="blueTitle"><a data-ng-href="#!/bookmarks/{{bookmark._id}}">{{bookmark.title}}</a></span> /
+<a href="{{bookmark.address}}">{{bookmark.address}}</a> /
+
+<span>{{bookmark.created | date:'medium'}}</span> /
+<span>{{bookmark.user.name}}</span> /
+                        Category: {{bookmark.category}} / {{bookmark.description}}
+ <span>{{bookmark.title}} <a data-ng-show="global.user._id == bookmark.\
+user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></span>
+</li>
+</ul>
+
+lets also say hi to {{global.user.name}}
+<p>Then Down here we try a little front end magicianship:</p>
+
+
+
+</section>

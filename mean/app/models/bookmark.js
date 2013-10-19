@@ -20,6 +20,11 @@ var BookmarkSchema = new Schema({
         trim: true
     },
     address: {
+	type: String,
+	default: '',
+	trim: true
+    },
+    description: {
         type: String,
         default: '',
         trim: true

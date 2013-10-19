@@ -1,6 +1,6 @@
 /**
- * Module dependencies.
- */
+* Module dependencies.
+*/
 var mongoose = require('mongoose'),
     async = require('async'),
     Bookmark = mongoose.model('Bookmark'),
@@ -8,8 +8,8 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Find bookmark by id
- */
+* Find bookmark by id
+*/
 exports.bookmark = function(req, res, next, id) {
     Bookmark.load(id, function(err, bookmark) {
         if (err) return next(err);
@@ -20,8 +20,8 @@ exports.bookmark = function(req, res, next, id) {
 };
 
 /**
- * Create a bookmark
- */
+* Create a bookmark
+*/
 exports.create = function(req, res) {
     var bookmark = new Bookmark(req.body);
     bookmark.user = req.user;
@@ -39,8 +39,8 @@ exports.create = function(req, res) {
 };
 
 /**
- * Update a bookmark
- */
+* Update a bookmark
+*/
 exports.update = function(req, res) {
     var bookmark = req.bookmark;
 
@@ -52,8 +52,8 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete a bookmark
- */
+* Delete a bookmark
+*/
 exports.destroy = function(req, res) {
     var bookmark = req.bookmark;
 
@@ -69,15 +69,15 @@ exports.destroy = function(req, res) {
 };
 
 /**
- * Show a bookmark
- */
+* Show a bookmark
+*/
 exports.show = function(req, res) {
     res.jsonp(req.bookmark);
 };
 
 /**
- * List of Bookmarks
- */
+* List of Bookmarks
+*/
 exports.all = function(req, res){
     Bookmark.find().sort('-created').populate('user', 'name username').exec(function(err, bookmarks) {
         if (err) {
@@ -90,4 +90,17 @@ exports.all = function(req, res){
     });
 };
 
-
+/**
+* List of Personal Bookmarks
+*/
+exports.all = function(req, res) {
+    Bookmark.find({ "category" : "Search engines" }).sort('-created').populate('user', 'name username').exec(function(err, mybookmarks) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(mybookmarks);
+        }
+    });
+};

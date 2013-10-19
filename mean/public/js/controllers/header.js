@@ -5,7 +5,13 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
         "title": "Bookmarks",
         "link": "bookmarks"
     }, {
+        "title": "Personal Bookmarks",
+        "link": "personal"
+    }, {
         "title": "Create New Bookmark",
         "link": "bookmarks/create"
+    }, {
+        "title": "View My Bookmarks",
+        "link": "bookmarks/mine"
     }];
 }]);

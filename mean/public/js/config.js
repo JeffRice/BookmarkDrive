@@ -14,6 +14,12 @@ window.app.config(['$routeProvider',
         when('/bookmarks/:bookmarkID', {
             templateUrl: 'views/bookmarks/view.html'
         }).
+        when('/personal', {
+            templateUrl: 'views/personal.html'
+        }).
+        when('/bookmarks/:mine', {
+            templateUrl: 'views/bookmarks/mine.html'
+        }).
         when('/', {
             templateUrl: 'views/index.html'
         }).

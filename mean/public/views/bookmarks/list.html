@@ -9,5 +9,23 @@
                         Category: {{bookmark.category}} / {{bookmark.description}}
 </li>
 </ul>
+
+Say hi to {{global.user.name}} for me!
+
+
+<h1 data-ng-hide="!bookmarks || bookmarks.length">No bookmarks yet. <br> Why don't you <a href="/#!/bookmarks/create">Create One</a>?</h1>
+</section>
+
+<section data-ng-controller="BookmarksController" data-ng-init="findMine()">
+<ul class="bookmarks unstyled">
+<li data-ng-repeat="bookmark in mybookmarks">
+<span class="blueTitle"><a data-ng-href="#!/bookmarks/{{bookmark._id}}">{{bookmark.title}}</a></span> /
+<a href="{{bookmark.address}}">{{bookmark.address}}</a> /
+
+<span>{{bookmark.created | date:'medium'}}</span> /
+<span>{{bookmark.user.name}}</span> /
+                        Category: {{bookmark.category}} / {{bookmark.description}}
+</li>
+</ul>
 <h1 data-ng-hide="!bookmarks || bookmarks.length">No bookmarks yet. <br> Why don't you <a href="/#!/bookmarks/create">Create One</a>?</h1>
 </section>

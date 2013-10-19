@@ -46,9 +46,15 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
         });
     };
 
+    $scope.findMine = function(query) {
+        Bookmarks.query(query, function(mybookmarks) {
+            $scope.mybookmarks = mybookmarks;
+        });
+    };
+
     $scope.findOne = function() {
 	Bookmarks.get({
-	    bookmarkId: $routeParams.bookmarkId
+	    bookmarkid: $routeParams.bookmarkid
 	}, function(bookmark) {
 	    $scope.bookmark = bookmark;
 	});

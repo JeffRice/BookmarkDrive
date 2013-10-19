@@ -1,10 +1,7 @@
 <section data-ng-controller="BookmarksController" data-ng-init="findOne()">
-	<span>{{bookmark.created | date:'medium'}}</span> / Paying Attention?
+	<span>{{bookmark.created | date:'medium'}}</span> /
 	<span>{{bookmark.user.name}}</span>
 	<h2>{{bookmark.title}} <a data-ng-show="global.user._id == bookmark.user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></h2>
-	<span>{{bookmark.address}}</span>
-        <h2>{{bookmarks.description}}
-
 	<div>{{bookmark.description}}</div>
 </section>
-<span>{{bookmark.created | date:'medium'}}</span>
+
