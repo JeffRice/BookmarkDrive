@@ -9,7 +9,7 @@ app.directive("superman", function() {
 app.directive("wonderwoman", function() {
     return {
 	restrict:"E",
-	template:"<div class='label'>Me too Bro!</div>"
+	template:"{{bookmarks}}"
     }
 })
 
