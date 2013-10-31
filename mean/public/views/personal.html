@@ -1,6 +1,9 @@
-What live <b>Here?</b>
+What live <b>Here?</b>A
 <section data-ng-controller="BookmarksController" data-ng-init="find()">
         <h1>This is the home viewalso broooo!!!</h1>
+
+<h3>First let's call out our {{oneTitle}} callback shall we?</h3>
+
 Let's try to view our own here:
 
 <ul class="unstyled">
@@ -26,5 +29,28 @@ lets also say hi to {{global.user.name}}
 <superman></superman>
 <h2> Wonder Woman?</h2>
 <wonderwoman></wonderwoman>
-  <br>{{hellos}}
+<ul class="unstyled">
+    <li ng-repeat="bookmark in bookmarks">
+{{bookmark.category}}
+</li></ul>
+{{categories}}
+<h4>Here's the categories object again:</h4>
+{{bookmarks}}
+</section>
+O
+{{bookmarks}}
+<section data-ng-controller="PersonalController" data-ng-init="find()">
+{{categories}}
+<ul class="unstyled">
+    <li ng-repeat="bookmark in bookmarks" data-ng-show="global.user._id == book\
+mark.user._id">{{bookmark.title}}
+<span class="blueTitle"><a data-ng-href="#!/bookmarks/{{bookmark._id}}">{{bookmark.title}}</a></span> /
+<a href="{{bookmark.address}}">{{bookmark.address}}</a> /
+
+<span>{{bookmark.created | date:'medium'}}</span> /
+<span>{{bookmark.user.name}}</span> /
+                        Category: {{bookmark.category}} / {{bookmark.description}}
+ <span>{{bookmark.title}} <a data-ng-show="global.user._id == bookmark.user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></span>
+</li>
+</ul>
 </section>
