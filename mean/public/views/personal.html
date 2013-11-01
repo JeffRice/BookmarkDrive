@@ -22,7 +22,7 @@ user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></span>
 lets also say hi to {{global.user.name}}
 <p>Then Down here we try a little front end magicianship:</p>
 <ul class="unstyled">
-    <li ng-repeat="bookmark in bookmarks">
+    <li ng-repeat="bookmark in bookmarks | orderBy : 'category'">
 {{bookmark.category}}
 </li></ul>
 <h2>Superman?</h2>
@@ -33,9 +33,6 @@ lets also say hi to {{global.user.name}}
     <li ng-repeat="bookmark in bookmarks">
 {{bookmark.category}}
 </li></ul>
-{{categories}}
-<h4>Here's the categories object again:</h4>
-{{bookmarks}}
 </section>
 O
 {{bookmarks}}
