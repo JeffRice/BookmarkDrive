@@ -73,6 +73,7 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the bookmarkID param
     app.param('bookmarkID', bookmarks.bookmark);
 
+
     //Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);
