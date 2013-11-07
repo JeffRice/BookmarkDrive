@@ -4,8 +4,8 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
     $scope.create = function() {
         var bookmark = new Bookmarks({
             title: this.title,
-	    address: this.address,
-	    category: this.category,
+         address: this.address,
+         category: this.category,
             description: this.description
         });
         bookmark.$save(function(response) {
@@ -14,12 +14,12 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
 
         this.title = "";
         this.description = "";
-	this.address = "";
-	this.category = "";
+        this.address = "";
+        this.category = "";
     };
 
     $scope.remove = function(bookmark) {
-        bookmark.$remove();  
+        bookmark.$remove();
 
         for (var i in $scope.bookmarks) {
             if ($scope.bookmarks[i] == bookmark) {
@@ -46,15 +46,19 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
         });
     };
 
+    $scope.findDinos = function(query) {
+        Bookmarks.query(query, function(dinobookmarks) {
+            $scope.dinobookmarks = dinobookmarks;
+        });
+    };
 
 
 
     $scope.findOne = function() {
-	Bookmarks.get({
-	    bookmarkid: $routeParams.bookmarkid
-	}, function(bookmark) {
-	    $scope.bookmark = bookmark;
-	});
+        Bookmarks.get({
+         bookmarkid: $routeParams.bookmarkid
+        }, function(bookmark) {
+         $scope.bookmark = bookmark;
+        });
     };
 }]);
-

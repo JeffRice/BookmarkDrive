@@ -1,9 +1,24 @@
 What live <b>Here?</b>A
-<section data-ng-controller="BookmarksController" data-ng-init="find()">
+
+<section data-ng-controller="BookmarksController" data-ng-init="findDinos()">
         <h1>This is the home viewalso broooo!!!</h1>
 
 <h3>First let's call out our {{oneTitle}} callback shall we?</h3>
 
+
+Do We Have Dinosaurs!?!?!?
+
+<ul class="unstyled">
+<li ng-repeat="bookmark in dinobookmarks">
+{{bookmark.title}}
+</li>
+</ul>
+</section>
+
+<section data-ng-controller="BookmarksController" data-ng-init="find()">
+        <h1>This is the home viewalso broooo!!!</h1>
+
+<h3>First let's call out our {{oneTitle}} callback shall we?</h3>
 
 Let's try to view our own here:
 
@@ -49,9 +64,9 @@ lets also say hi to {{global.user.name}}
 </li></ul>
 </section>
 O
-{{bookmarks}}
+
 <section data-ng-controller="PersonalController" href="/#!/bookmarks/{{bookmark._id}}/edit" data-ng-init="find()">
-{{categories}}
+
 Personal bookmarks:
 <ul class="unstyled">
     <li ng-repeat="bookmark in bookmarks">{{bookmark.title}}
@@ -64,7 +79,4 @@ Personal bookmarks:
  <span>{{bookmark.title}} <a data-ng-show="global.user._id == bookmark.user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></span>
 </li>
 </ul>
-
-{{dinos}}
-{{bookmarks}}
 </section>

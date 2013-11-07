@@ -9,7 +9,7 @@ app.directive("superman", function() {
 app.directive("wonderwoman", function() {
     return {
 	restrict:"E",
-	template:"{{bookmarks}}"
+	template:"<ul class='unstyled'><li ng-repeat='bookmark in bookmarks'>{{bookmark.category}}</li></ul>"
     }
 })
 
