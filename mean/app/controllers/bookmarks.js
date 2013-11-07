@@ -4,7 +4,10 @@
 var mongoose = require('mongoose'),
     async = require('async'),
     Bookmark = mongoose.model('Bookmark'),
+    Category = mongoose.model('Bookmark'),
     _ = require('underscore');
+
+
 
 
 /**
@@ -89,5 +92,3 @@ exports.all = function(req, res){
         }
     });
 };
-
-
