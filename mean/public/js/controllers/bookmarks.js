@@ -40,23 +40,26 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
         });
     };
 
+
+
     $scope.find = function(query) {
-        Bookmarks.query(query, function(bookmarks) {
+        Bookmarks.query({category : 'dinosaurs'}, function(bookmarks) {
             $scope.bookmarks = bookmarks;
         });
     };
 
-    $scope.findDinos = function(query) {
-        Bookmarks.query(query, function(dinobookmarks) {
+    $scope.data = {message:"Whats up homies"}
+
+    $scope.findNew = function(query) {
+        Bookmarks.query({category : 'dinosaurs'}, function(bookmarks) {
             $scope.dinobookmarks = dinobookmarks;
         });
     };
 
 
-
     $scope.findOne = function() {
         Bookmarks.get({
-         bookmarkid: $routeParams.bookmarkid
+         bookmarkId: $routeParams.bookmarkId
         }, function(bookmark) {
          $scope.bookmark = bookmark;
         });
