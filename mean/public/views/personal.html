@@ -1,21 +1,26 @@
-What live <b>Here?</b>A
+What live <b>Here?</b>
 
-<section data-ng-controller="BookmarksController" data-ng-init="findDinos()">
+<section data-ng-controller="PersonalController" data-ng-init="find()">
         <h1>This is the home viewalso broooo!!!</h1>
 
+
+
 <h3>First let's call out our {{oneTitle}} callback shall we?</h3>
+
 
 
 Do We Have Dinosaurs!?!?!?
 
 <ul class="unstyled">
-<li ng-repeat="bookmark in dinobookmarks">
+<li ng-repeat="bookmark in bookmarks">
 {{bookmark.title}}
 </li>
 </ul>
 </section>
 
 <section data-ng-controller="BookmarksController" data-ng-init="find()">
+{{dinobookmarks}}
+
         <h1>This is the home viewalso broooo!!!</h1>
 
 <h3>First let's call out our {{oneTitle}} callback shall we?</h3>
@@ -43,8 +48,16 @@ lets also say hi to {{global.user.name}}
 
 <ul class="unstyled">
 <li ng-repeat="bookmark in bookmarks | orderBy : 'category' | unique : 'category'">
-
+<input type="text" ng-model="data.message">
+<h1>{{data.message + " world"}}</h1>
 {{bookmark.category}}
+<ul>
+<li ng-repeat="bookmark in bookmarks" ng-model="bookmark.category" data-ng-show="bookmark.category == data.message">
+{{bookmark.title}} | {{bookmark.address}} | {{bookmark.category}}
+</li></ul>
+<div class="{{data.message}}">
+     Wrap me in a Bootstrap component
+</div>
 </li></ul>
 <ul>
 <li ng-repeat="bookmark in bookmarks | orderBy : 'category' | unique : 'category'" data-ng-show="bookmark.category">Air conditioning {{bookmark.category}}
@@ -69,7 +82,7 @@ O
 
 Personal bookmarks:
 <ul class="unstyled">
-    <li ng-repeat="bookmark in bookmarks">{{bookmark.title}}
+    <li ng-repeat="bookmark in dinobookmarks">{{bookmark.title}}
 <span class="blueTitle"><a data-ng-href="#!/bookmarks/{{bookmark._id}}">{{bookmark.title}}</a></span> /
 <a href="{{bookmark.address}}">{{bookmark.address}}</a> /
 
@@ -77,6 +90,44 @@ Personal bookmarks:
 <span>{{bookmark.user.name}}</span> /
                         Category: {{bookmark.category}} / {{bookmark.description}}
  <span>{{bookmark.title}} <a data-ng-show="global.user._id == bookmark.user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></span>
+</li>
+</ul>
+</section>
+Just abusing this view now:
+
+<section data-ng-controller="BookmarksController" data-ng-init="find()">
+        <h1>This is the home viewalso broooo!!!</h1>
+
+
+
+<h3>First let's call out our {{oneTitle}} callback shall we?</h3>
+
+
+
+Do We Have Dinosaurs!?!?!?
+{{newdinos}}
+<ul class="unstyled">
+<li ng-repeat="bookmark in bookmarks">
+{{bookmark.title}}
+</li>
+</ul>
+</section>
+further abuse:
+
+<section data-ng-controller="BookmarksController" data-ng-init="findNew()">
+        <h1>This is the home viewalso broooo!!!</h1>
+
+
+
+<h3>First let's call out THIS IS A BOOKMARKS CONTROLLER WITH A FINDNEW SCOPRE our {{oneTitle}} callback shall we?</h3>
+
+
+
+Do We Have Dinosaurs!?!?!?
+{{dinobookmarks}}
+<ul class="unstyled">
+<li ng-repeat="bookmark in dinobookmarks">
+{{bookmark.title}}
 </li>
 </ul>
 </section>
