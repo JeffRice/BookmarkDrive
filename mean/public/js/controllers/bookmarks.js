@@ -48,13 +48,32 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
         });
     };
 
-    $scope.data = {message:"Whats up homies"}
+    $scope.data = {message: "herro"};
+
+    $scope.reversedMessage = function () {
+	return $scope.data.message.split("").reverse().join("");}
+
 
     $scope.findNew = function(query) {
-        Bookmarks.query({category : 'dinosaurs'}, function(bookmarks) {
+        Bookmarks.query({category : 'dinosaurs'}, function(dinobookmarks) {
             $scope.dinobookmarks = dinobookmarks;
         });
     };
+
+
+
+
+   $scope.newList = function (value) {
+      var blacklist = ['http://', 'https://', 'ftp://'];
+      return blacklist.indexOf(value) === -1;
+    }
+
+
+   $scope.notBlackListed = function (value) {
+      var blacklist = ['bad@domain.com', 'verybad@domain.com', 'house'];
+      return blacklist.indexOf(value) === -1;
+    }
+
 
 
     $scope.findOne = function() {
