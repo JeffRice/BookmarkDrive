@@ -12,12 +12,13 @@ This is my test bro:
         <form name="form">
 
           <h3>address test</h3>
-
 1
-<input name="addy2" ng-model="addy2" required ui-validate="{blacklist : 'newList($value)' }">
+<input name="addy2" ng-model="addy2" required ui-validate="{blacklist : 'newList($value)'}">
    <span ng-show='form.addy2.$error.blacklist'>This e-mail is black-listed!</span>
           <br>is form valid: {{form.$valid}}
           <br>email errors: {{form.addy2.$error | json}}
+
+
 
 2
           <input name="addy" placeholder="addy" type="addy" required ng-model="addy" required ui-validate="{blacklist : 'notBlackListed($value)' }">
@@ -27,14 +28,8 @@ This is my test bro:
           <span ng-show='form.addy.$error.blacklist'>This e-mail is black-listed!</span>
           <br>is form valid: {{form.$valid}}
           <br>email errors: {{form.addy.$error | json}}
+</form>
 
-          <h3>password</h3>
-          <input name="password" type="text" required ng-model="password" placeholder="password">
-          <input name="confirm_password" type="text" required ng-model="confirm_password" ui-validate=" '$value==password' " ui-validate-watch=" 'password' " placeholder="confirm password">
-          <span ng-show='form.confirm_password.$error.validator'>Passwords do not match!</span>
-          <br>is form valid: {{form.$valid}}
-          <br>password errors: {{form.confirm_password.$error | json}}
-        </form>
       </div>
 
 <p>CHECK THIS OUT</p>
@@ -65,14 +60,6 @@ This is my test bro:
 			</div>
 		</div>
 	</form>
-<script>
-  function ValidateCtrl($scope) {
-    $scope.notBlackListed = function (value) {
-      var blacklist = ['bad@domain.com', 'verybad@domain.com'];
-      return blacklist.indexOf(value) === -1;
-    }
-  }
-</script>
 <section id="validate">
   <div class="page-header">
     <h1>Validate</h1>
