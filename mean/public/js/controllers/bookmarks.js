@@ -62,19 +62,26 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
 
 
 
-
    $scope.newList = function (value) {
-      var blacklist = ['http://', 'https://', 'ftp://'];
-      return blacklist.indexOf(value) === -1;
+      var blacklist = ['http://' + value.substr(7), 'https://' + value.substr(8), 'ftp://' + value.substr(6)];
+      var httpPattern = value.substr(0, 7);
+      var httpsPattern = value.substr(0, 8);
+      var ftpPattern = value.substr(0, 6);
+
+       
+       if (httpPattern === 'http://') {
+      return blacklist.indexOf(value) === 0;
     }
 
 
-   $scope.notBlackListed = function (value) {
-      var blacklist = ['bad@domain.com', 'verybad@domain.com', 'house'];
-      return blacklist.indexOf(value) === -1;
-    }
+          else if (httpsPattern === 'https://'){
+      return blacklist.indexOf(value) === 1; }
 
 
+       else if (ftpPattern === 'ftp://'){
+      return blacklist.indexOf(value) === 2; }
+
+};
 
     $scope.findOne = function() {
         Bookmarks.get({
