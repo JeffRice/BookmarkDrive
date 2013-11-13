@@ -14,27 +14,16 @@ This is my test bro:
           <h3>address test</h3>
 1
 
-<input name="addy2" ng-model="addy2" required ui-validate="{blacklist : 'newList($value)'}">
-   <span ng-show='form.addy2.$error.blacklist'>This e-mail is black-listed!</span>
-          <br>is form valid: {{form.$valid}}
-          <br>email errors: {{form.addy2.$error | json}}
-
- <input ng-model="address" class="immediate-help" password-validate required type="password" id="inputPassword" placeholder="http://">
-    <div class="input-help">
-      <h4>Password must meet the following requirements:</h4>
-      <ul>
-        <li ng-class="pwdHasLetter">At least <strong>one letter</strong></li>
-        <li ng-class="pwdHasNumber">At least <strong>one number</strong></li>
-        <li ng-class="pwdValidLength">At least <strong>8 characters long</strong></li>
-      </ul>
-    </div>
-
-
 
 		<div class="control-group">
 		        <label class="control-label" for="address">Address:</label>
+<input name="address" value="http://" ng-model="address" id="address" placeholder="Http://" required ui-validate="{blacklist : 'newList($value)'}">
+   <span ng-show='form.address.$error.blacklist'>Please begin your bookmarks with either: <b>"http://", "https://", or "ftp://"</b>.</span>
+          <br>is form valid: {{form.$valid}}
+          <br>email errors: {{form.address.$error | json}}
+
 			<div class="controls">
-			        <input type="text" data-ng-model="address" id="address" placeholder="address Http://" address-validate required>
+
 </div></div>
 		<div class="control-group">
 			<label class="control-label" for="description">Description:</label>
