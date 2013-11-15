@@ -1,0 +1,33 @@
+OAf<section data-ng-controller="MybookmarksController" data-ng-init="find()">
+{{mydinobookmarks}}
+
+<ul class="mybookmarks unstyled">
+<li data-ng-repeat="mybookmark in mybookmarks">
+<span class="blueTitle"><a data-ng-href="#!/mybookmarks/{{mybookmark._id}}">{{mybookmark.title}}</a></span> /
+<a href="{{mybookmark.address}}">{{mybookmark.address}}</a> /
+
+<span>{{mybookmark.created | date:'medium'}}</span> /
+<span>{{mybookmark.user.name}}</span> /
+                        Category: {{mybookmark.category}} / {{mybookmark.description}}
+</li>
+</ul>
+
+Say hi to {{global.user.name}} for me!
+
+
+<h1 data-ng-hide="!mybookmarks || mybookmarks.length">No mybookmarks yet. <br> Why dont you <a href="/#!/mybookmarks/create">Create One</a>?</h1>
+</section>
+
+<section data-ng-controller="MybookmarksController" data-ng-init="findMine()">
+<ul class="mybookmarks unstyled">
+<li data-ng-repeat="mybookmark in mybookmarks">
+<span class="blueTitle"><a data-ng-href="#!/mybookmarks/{{mybookmark._id}}">{{mybookmark.title}}</a></span> /
+<a href="{{mybookmark.address}}">{{mybookmark.address}}</a> /
+
+<span>{{mybookmark.created | date:'medium'}}</span> /
+<span>{{mybookmark.user.name}}</span> /
+                        Category: {{mybookmark.category}} / {{mybookmark.description}}
+</li>
+</ul>
+<h1 data-ng-hide="!mybookmarks || mybookmarks.length">No mybookmarks yet. <br> Why don't you <a href="/#!/mybookmarks/create">Create One</a>?</h1>
+</section>
