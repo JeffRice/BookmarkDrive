@@ -23,6 +23,9 @@ window.app.config(['$routeProvider',
         when('/', {
             templateUrl: 'views/index.html'
         }).
+        when('/mybookmarks', {
+            templateUrl: 'views/mybookmarks/list.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
