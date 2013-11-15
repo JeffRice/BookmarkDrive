@@ -63,15 +63,24 @@ module.exports = function(app, passport, auth) {
     app.param('userId', users.user);
 
     //Bookmark Routes
-    var bookmarks = require('../app/controllers/bookmarks');
+    var bookmarks = require('../app/controllers/bookmarks', '../app/controllers/personal');
+    var personal = require('../app/controllers/personal');
+
+    var mybookmarks = require('../app/controllers/mybookmarks');
+    app.get('/mybookmarks', mybookmarks.all);
+
+
+    app.get('/personal', bookmarks.all, personal.all);
     app.get('/bookmarks', bookmarks.all);
     app.post('/bookmarks', auth.requiresLogin, bookmarks.create);
     app.get('/bookmarks/:bookmarkID', bookmarks.show);
     app.put('/bookmarks/:bookmarkID', auth.requiresLogin, auth.bookmark.hasAuthorization, bookmarks.update);
     app.del('/bookmarks/:bookmarkID', auth.requiresLogin, auth.bookmark.hasAuthorization, bookmarks.destroy);
 
+
     //Finish with setting up the bookmarkID param
     app.param('bookmarkID', bookmarks.bookmark);
+
 
 
     //Home route
