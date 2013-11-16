@@ -6,6 +6,8 @@ var mongoose = require('mongoose'),
     Mybookmark = mongoose.model('Bookmark'),
     _ = require('underscore');
 
+
+
 /**
 * Find mybookmark by id
 */
@@ -79,24 +81,15 @@ exports.show = function(req, res) {
 */
 exports.all = function(req, res){
 
-    var query = {};
+    var query = { 'user' : req.user };
+
 
 Mybookmark.find(query).where({}).sort('-created').populate('user', 'name username').exec(function(err, mybookmarks) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(mybookmarks);
-        }
-    });
+    if (err) {
+	console.log(err);
+    }  else {
+	res.jsonp(mybookmarks);
+    }
+});
 };
 
-exports.agg = function(req, res){
-Mybookmark.aggregate(  
-    { $match: { category: 'dinosaurs'}}, // 'group' goes first!
-    function(err, mydinobookmarks) {
-        res.jsonp(mydinobookmarks);
-    }
-);
-};
