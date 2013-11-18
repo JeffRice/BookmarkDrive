@@ -70,26 +70,47 @@ exports.destroy = function(req, res) {
 };
 
 /**
-* Show a mybookmark
+* Show a bookmark
 */
 exports.show = function(req, res) {
     res.jsonp(req.mybookmark);
 };
 
 /**
-* List of mybookmarks
+* List of Personal Bookmarks
 */
+
+
 exports.all = function(req, res){
 
     var query = { 'user' : req.user };
 
 
-Mybookmark.find(query).where({}).sort('-created').populate('user', 'name username').exec(function(err, mybookmarks) {
-    if (err) {
-	console.log(err);
-    }  else {
-	res.jsonp(mybookmarks);
-    }
-});
+ Mybookmark.find(query).where({}).sort('-created').populate('user', 'name username').exec(function(err, mybookmarks) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+
+            res.jsonp(mybookmarks);
+        }
+    });
 };
 
+exports.all = function(req, res){
+
+Mybookmark.aggregate(
+{ $match : { "category" : "funny" }},
+    function(err, aggbookmarks) {
+        if(err){
+            return res.send(500, {error: err });
+        }
+        if(aggbookmarks) {
+            return res.jsonp(aggbookmarks);
+        } else {
+            res.send(500, { error: 'couldnt find expenses' });
+        }
+    }
+);
+};
