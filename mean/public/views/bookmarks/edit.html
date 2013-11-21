@@ -1,5 +1,5 @@
 <section data-ng-controller="BookmarksController" data-ng-init="findOne()">
-	<form class="form-horizontal" data-ng-submit="update()">
+	<form name="form" class="form-horizontal" data-ng-submit="update()">
 		<div class="control-group">
 			<label class="control-label" for="title">Title</label>
 
@@ -8,14 +8,42 @@
 				</input>
 			</div>
 		</div>
+
+ <div class="control-group">
+                        <label class="control-label" for="address">Address:</label>
+<input name="address" value="http://" ng-model="address" id="address" placeholder="http://" required ui-validate="{blacklist : 'newList($value)'}">
+   <span ng-show='form.address.$error.blacklist'>Please begin your bookmarks with either: <b>"http://", "https://", or "ftp://"</b>.</span>
+          <br>is form valid: {{form.$valid}}
+          <br>Address errors: {{form.address.$error | json}}
+
+                        <div class="controls">
+
+</div></div>
+
+
 		<div class="control-group">
-			<label class="control-label" for="content">Content</label>
+			<label class="control-label" for="description">Description</label>
 
 			<div class="controls">
-				<textarea data-ng-model="bookmark.content" id="content" cols="30" rows="10" placeholder="Content">
+				<textarea data-ng-model="bookmark.content" id="description" cols="30" rows="10" placeholder="Descrption">
 				</textarea>
 			</div>
 		</div>
+
+<div class="control-group">
+
+                        <label class="control-label" for="category">Category:</label>
+                        <div class="controls">
+                                <textarea data-ng-model="category" id="category" placeholder="Category"></textarea></div>
+</div>
+<div class="control-group">
+
+                        <label class="control-label" for="list">List:</label>
+                        <div class="controls">
+                                <textarea data-ng-model="list" id="list" placeholder="List"></textarea></div>
+</div></div>
+
+
 		<div class="control-group">
 			<div class="controls">
 				<input type="submit" class="btn">
