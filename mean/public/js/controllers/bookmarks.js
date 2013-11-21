@@ -1,4 +1,4 @@
-angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$routeParams', '$location', 'Global', 'Bookmarks', function ($scope, $routeParams, $location, Global, Bookmarks) {
+angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$routeParams', '$location', 'Global', 'Bookmarks', 'Mybookmarks', function ($scope, $routeParams, $location, Global, Bookmarks, Mybookmarks) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -6,6 +6,7 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
             title: this.title,
          address: this.address,
          category: this.category,
+         list: this.list,
             description: this.description
         });
         bookmark.$save(function(response) {
@@ -16,6 +17,8 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
         this.description = "";
         this.address = "";
         this.category = "";
+        this.category = "";
+        this.list = "";
     };
 
     $scope.remove = function(bookmark) {
@@ -48,10 +51,10 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
         });
     };
 
-    $scope.data = {message: "herro"};
+    $scope.data = {message: ""};
 
     $scope.reversedMessage = function () {
-	return $scope.data.message.split("").reverse().join("");}
+	return $scope.data.message.split("").reverse().join("");};
 
 
     $scope.findNew = function(query) {
@@ -61,6 +64,9 @@ angular.module('mean.bookmarks').controller('BookmarksController', ['$scope', '$
     };
 
 
+/**
+*Validate links start with http
+**/
 
    $scope.newList = function (value) {
       var blacklist = ['http://' + value.substr(7), 'https://' + value.substr(8), 'ftp://' + value.substr(6)];

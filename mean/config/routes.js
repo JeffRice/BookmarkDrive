@@ -68,6 +68,7 @@ module.exports = function(app, passport, auth) {
 
     var mybookmarks = require('../app/controllers/mybookmarks');
     app.get('/mybookmarks', mybookmarks.all);
+    app.get('/mybookmarks/:mybookmarkID', mybookmarks.show);
 
 
     app.get('/personal', bookmarks.all, personal.all);
@@ -80,6 +81,9 @@ module.exports = function(app, passport, auth) {
 
     //Finish with setting up the bookmarkID param
     app.param('bookmarkID', bookmarks.bookmark);
+
+    //Finish with setting up the bookmarkID param
+    app.param('mybookmarkID', mybookmarks.mybookmark);
 
 
 
