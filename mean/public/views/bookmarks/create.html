@@ -1,26 +1,25 @@
 <section data-ng-controller="BookmarksController" id="validate">
 	<form name="form" class="form-horizontal" data-ng-submit="create()">
-		<div class="control-group">
-			<label class="control-label" for="title">Title:</label>
-			<div class="controls">
-				<input type="text" data-ng-model="title" id="title" placeholder="Title" required>
-			</div>
-		</div>
 
-This is my test bro:
+
+
       <div class="well">
-        <form name="form">
+       <form name="form">
+ <div class="control-group">
+                        <label class="control-label" for="title">Title:</label>
+                        <div class="controls">
+                                <input type="text" data-ng-model="title" id="title" placeholder="Title" required>
+                        </div>
+                </div>
 
-          <h3>address test</h3>
-1
 
 
 		<div class="control-group">
 		        <label class="control-label" for="address">Address:</label>
-<input name="address" value="http://" ng-model="address" id="address" placeholder="Http://" required ui-validate="{blacklist : 'newList($value)'}">
+<input name="address" value="http://" ng-model="address" id="address" placeholder="http://" required ui-validate="{blacklist : 'newList($value)'}">
    <span ng-show='form.address.$error.blacklist'>Please begin your bookmarks with either: <b>"http://", "https://", or "ftp://"</b>.</span>
           <br>is form valid: {{form.$valid}}
-          <br>email errors: {{form.address.$error | json}}
+          <br>Address errors: {{form.address.$error | json}}
 
 			<div class="controls">
 
@@ -36,7 +35,16 @@ This is my test bro:
                         <label class="control-label" for="category">Category:</label>
 			<div class="controls">
                                 <textarea data-ng-model="category" id="category" placeholder="Category"></textarea></div>
+</div>
+<div class="control-group">
+
+                        <label class="control-label" for="list">List:</label>
+                        <div class="controls">
+                                <textarea data-ng-model="list" id="list" placeholder="List"></textarea></div>
 </div></div>
+
+
+
 
 		<div class="control-group">
 			<div class="controls">
@@ -45,4 +53,3 @@ This is my test bro:
 		</div>
 	</form>
 </section>
-
