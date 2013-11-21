@@ -1,16 +1,67 @@
-OAf<section data-ng-controller="MybookmarksController" data-ng-init="find()">
-{{mydinobookmarks}}
+<h1>Welcome to OACrowdMark</h1>
+<section data-ng-controller="MybookmarksController" data-ng-init="find()">
 
 <ul class="mybookmarks unstyled">
 <li data-ng-repeat="mybookmark in mybookmarks">
-<span class="blueTitle"><a data-ng-href="#!/mybookmarks/{{mybookmark._id}}">{{mybookmark.title}}</a></span> /
-<a href="{{mybookmark.address}}">{{mybookmark.address}}</a> /
 
+
+<h1>{{mybookmark._id.cat}}</h1>
+
+
+ <div data-ng-repeat="bookmarkinfo in mybookmark.bookmarkinfos">
+
+<span class="blueTitle">
+
+<table>
+<tr>
+<td>TITLE</td>
+<td>ADDRESS</td>
+<td>DATE</td>
+<td>DESC</td>
+</tr>
+</span>
+<tr>
+<td>{{bookmarkinfo.title}}</td>
+<td>{{bookmarkinfo.address}}</td>
+<td>{{bookmarkinfo.created | date:'medium'}}</td>
+<td>{{bookmarkinfo.description}}</td>
+
+</tr>
+</table>
+
+</div>
+
+
+
+
+<span class="blueTitle"><a data-ng-href="#!/mybookmarks/{{mybookmark._id}}">
+{{mybookmark.bookmarktitle + 'and the addy:' + mybookmark.bookmarkaddress}}</a></span> /|
+<span>
+    title: {{mybookmark.bookmarktitle}} / address: {{mybookmark.bookmarkaddress}} /
+
+
+
+
+
+<a href="{{mybookmark.address}}">{{mybookmark.address}}</a> /
+{{mybookmark._id.cat}} we just right of here{{mybookmark.category}} where we @?
 <span>{{mybookmark.created | date:'medium'}}</span> /
 <span>{{mybookmark.user.name}}</span> /
-                        Category: {{mybookmark.category}} / {{mybookmark.description}}
+                        Category: {{mybookmark.bookmarkcategory}} / {{mybookmark.description}}
+
+
+{{mybookmark.bookmarktitle}}
+The final marker
+
 </li>
 </ul>
+<table>
+<tr>
+<td>{{mybookmark.bookmarktitle}}<td>
+<td>{{bookmarkaddress}}<td>
+
+</tr>
+</table>
 
 Say hi to {{global.user.name}} for me!
 
@@ -18,16 +69,117 @@ Say hi to {{global.user.name}} for me!
 <h1 data-ng-hide="!mybookmarks || mybookmarks.length">No mybookmarks yet. <br> Why dont you <a href="/#!/mybookmarks/create">Create One</a>?</h1>
 </section>
 
-<section data-ng-controller="MybookmarksController" data-ng-init="findMine()">
-<ul class="mybookmarks unstyled">
-<li data-ng-repeat="mybookmark in mybookmarks">
-<span class="blueTitle"><a data-ng-href="#!/mybookmarks/{{mybookmark._id}}">{{mybookmark.title}}</a></span> /
-<a href="{{mybookmark.address}}">{{mybookmark.address}}</a> /
+What live <b>Here?</b>
 
-<span>{{mybookmark.created | date:'medium'}}</span> /
-<span>{{mybookmark.user.name}}</span> /
-                        Category: {{mybookmark.category}} / {{mybookmark.description}}
+<section data-ng-controller="PersonalController" data-ng-init="find()">
+        <h1>This is the home viewalso broooo!!!</h1>
+
+
+
+<h3>First let's call out our {{oneTitle}} callback shall we?</h3>
+
+
+
+Do We Have Dinosaurs!?!?!?
+
+<ul class="unstyled">
+<li ng-repeat="bookmark in bookmarks">
+{{bookmark.title}}
 </li>
 </ul>
-<h1 data-ng-hide="!mybookmarks || mybookmarks.length">No mybookmarks yet. <br> Why don't you <a href="/#!/mybookmarks/create">Create One</a>?</h1>
+</section>
+
+<section data-ng-controller="BookmarksController" data-ng-init="find()">
+{{dinobookmarks}}
+
+        <h1>This is the home viewalso broooo!!!</h1>
+
+<h3>First let's call out our {{oneTitle}} callback shall we?</h3>
+
+Let's try to view our own here:
+
+<ul class="unstyled">
+    <li ng-repeat="bookmark in bookmarks" data-ng-show="global.user._id == bookmark.user._id">{{bookmark.title}}
+<span class="blueTitle"><a data-ng-href="#!/bookmarks/{{bookmark._id}}">{{bookmark.title}}</a></span> /
+<a href="{{bookmark.address}}">{{bookmark.address}}</a> /
+
+<span>{{bookmark.created | date:'medium'}}</span> /
+<span>{{bookmark.user.name}}</span> /
+                        Category: {{bookmark.category}} / {{bookmark.description}}
+ <span>{{bookmark.title}} <a data-ng-show="global.user._id == bookmark.user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></span>
+</li>
+</ul>
+
+lets also say hi to {{global.user.name}}
+<p>Then Down here we try a little front end magicianship:</p>
+<ul class="unstyled">
+    <li ng-repeat="bookmark in bookmarks | orderBy : 'category'">
+{{bookmark.category}}
+</li></ul>
+
+<ul class="unstyled">
+<li ng-repeat="bookmark in bookmarks | orderBy : 'category' | unique : 'category'">
+<input type="text" ng-model="data.message">
+<h1>{{data.message + " world"}}</h1>
+{{bookmark.category}}
+<ul>
+<li ng-repeat="bookmark in bookmarks" ng-model="bookmark.category" data-ng-show="bookmark.category == data.message">
+{{bookmark.title}} | {{bookmark.address}} | {{bookmark.category}}
+</li></ul>
+<div class="{{data.message}}">
+     Wrap me in a Bootstrap component
+</div>
+</li></ul>
+<ul>
+<li ng-repeat="bookmark in bookmarks | orderBy : 'category' | unique : 'category'" data-ng-show="bookmark.category">Air conditioning {{bookmark.category}}
+
+<div ng-repeat="bookmark in bookmarks | orderBy : 'category'" data-ng-show="bookmark.category == 'dinosaurs'">Title: {{bookmark.title}}</div>
+
+</li>
+
+</ul>
+<h2>Superman?</h2>
+<superman></superman>
+<h2> Wonder Woman?</h2>
+<wonderwoman></wonderwoman>
+<ul class="unstyled">
+    <li ng-repeat="bookmark in bookmarks">
+{{bookmark.category}}
+</li></ul>
+</section>
+O
+
+<section data-ng-controller="PersonalController" href="/#!/bookmarks/{{bookmark._id}}/edit" data-ng-init="find()">
+
+Personal bookmarks:
+<ul class="unstyled">
+    <li ng-repeat="bookmark in dinobookmarks">{{bookmark.title}}
+<span class="blueTitle"><a data-ng-href="#!/bookmarks/{{bookmark._id}}">{{bookmark.title}}</a></span> /
+<a href="{{bookmark.address}}">{{bookmark.address}}</a> /
+
+<span>{{bookmark.created | date:'medium'}}</span> /
+<span>{{bookmark.user.name}}</span> /
+                        Category: {{bookmark.category}} / {{bookmark.description}}
+ <span>{{bookmark.title}} <a data-ng-show="global.user._id == bookmark.user._id" href="/#!/bookmarks/{{bookmark._id}}/edit">edit</a></span>
+</li>
+</ul>
+</section>
+Just abusing this view now:
+
+<section data-ng-controller="BookmarksController" data-ng-init="find()">
+        <h1>This is the home viewalso broooo!!!</h1>
+
+
+
+<h3>First let's call out our {{oneTitle}} callback shall we?</h3>
+
+
+
+Do We Have Dinosaurs!?!?!?
+{{newdinos}}
+<ul class="unstyled">
+<li ng-repeat="bookmark in bookmarks">
+{{bookmark.title}}
+</li>
+</ul>
 </section>
