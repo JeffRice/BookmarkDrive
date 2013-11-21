@@ -98,10 +98,47 @@ exports.all = function(req, res){
     });
 };
 
+
 exports.all = function(req, res){
 
 Mybookmark.aggregate(
-{ $match : { "category" : "funny" }},
+
+
+
+{ $match: { user : req.user._id }},
+
+
+
+{  $group:
+    {
+        _id: {
+            "cat": "$category",
+	    "bookmarkinfo" : { "title" : "$title", "address" : "$address", "user" : "$user", "created" : "$created", "description" : "$description"},
+	    "title" : "$title",
+	    "address" : "$address",
+	    "user" : "$user",
+         },
+        bookmarkcategory:{$addToSet: "$category"},
+        }
+       },
+
+
+{
+  $group:
+    {
+        _id: {
+            "cat": "$_id.cat"
+          },
+        bookmarktitles:{$addToSet: "$_id.title"},
+        bookmarkaddresses:{$addToSet: "$_id.address"},
+        bookmarktitles:{$addToSet: "$_id.title"},
+	bookmarkinfos:{$addToSet: "$_id.bookmarkinfo"},
+
+}
+       },
+
+
+
     function(err, aggbookmarks) {
         if(err){
             return res.send(500, {error: err });
