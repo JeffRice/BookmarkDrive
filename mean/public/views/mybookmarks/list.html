@@ -7,9 +7,8 @@
 
 <h1>{{mybookmark._id.cat}}</h1>
 
-
- <div data-ng-repeat="bookmarkinfo in mybookmark.bookmarkinfos">
-
+<input type="text" ng-model="search.title">
+<div data-ng-repeat="bookmarkinfo in mybookmark.bookmarkinfos | filter:search">
 <span class="blueTitle">
 
 <table>
@@ -18,14 +17,15 @@
 <td>ADDRESS</td>
 <td>DATE</td>
 <td>DESC</td>
+<td>EDIT</td>
 </tr>
 </span>
 <tr>
 <td>{{bookmarkinfo.title}}</td>
-<td>{{bookmarkinfo.address}}</td>
+<td><a href="{{bookmarkinfo.address}}">{{bookmarkinfo.address}}</a></td>
 <td>{{bookmarkinfo.created | date:'medium'}}</td>
 <td>{{bookmarkinfo.description}}</td>
-
+<td><a href="/#!/bookmarks/{{bookmarkinfo.id}}/edit">edit</a></td>
 </tr>
 </table>
 
