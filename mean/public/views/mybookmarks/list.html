@@ -19,7 +19,9 @@
 <th><a href="" ng-click="predicate = 'address'; reverse=!reverse">Address</a></th>
 <th><a href="" ng-click="predicate = 'age'; reverse=!reverse">Age</a></th>
 </tr>
-<tr ng-repeat="bookmarkinfo in mybookmark.bookmarkinfos | orderBy:predicate:reverse">
+<input type="text" ng-model="search.title">
+
+<tr ng-repeat="bookmarkinfo in mybookmark.bookmarkinfos | orderBy:predicate:reverse | filter:search">
 <td>{{bookmarkinfo.title}}</td>
 <td>{{bookmarkinfo.address}}</td>
 <td>{{friend.age}}</td>
@@ -30,7 +32,7 @@
 
 <h1>{{mybookmark._id.cat}}</h1>
 
-<input type="text" ng-model="search.title">
+
 <div data-ng-repeat="bookmarkinfo in mybookmark.bookmarkinfos | filter:search">
 <span class="blueTitle">
 
